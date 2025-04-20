@@ -2,21 +2,28 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useGameSettingsStore } from "../store/Stores";
-import { div } from "framer-motion/client";
 
 import programming from "../CardComponent/programming.json";
 import math from "../CardComponent/math.json";
 import color from "../CardComponent/color.json";
 import science from "../CardComponent/science.json";
 
-function shuffleData(arr: any[]): any[] {
+interface CardsInterface{
+  id: number;
+  name: string;
+  imgLoc?: string;
+  symbol?:string;
+  background?:string;
+}
+
+const shuffleData = (arr: CardsInterface[]): CardsInterface[] => {
   return arr
     .map((value) => ({ value, sort: Math.random() }))
     .sort((a, b) => a.sort - b.sort)
     .map(({ value }) => value);
 }
 
-function getTheme(Theme: string): any[] {
+function getTheme(Theme: string): CardsInterface[] {
   if (Theme == "programming") {
     return programming;
   } else if (Theme == "math") {
@@ -30,7 +37,7 @@ function getTheme(Theme: string): any[] {
 }
 
 export default function Cards({ moves }: { moves: () => void }) {
-  const [cards, setCards] = useState<any[]>([]);
+  const [cards, setCards] = useState<CardsInterface[]>([]);
   const [flippedCards, setFlippedCards] = useState<number[]>([]);
   const [check, setCheck] = useState<boolean>(false);
   const [savedIdCard, setSavedIdCard] = useState(-1);

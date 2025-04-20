@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Cards from "./Cards"
 import { useGameSettingsStore } from "../store/Stores";
