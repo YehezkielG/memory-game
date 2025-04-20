@@ -14,8 +14,7 @@ function Times(){
   const {difficulty,theme} = useGameSettingsStore();
 
   useEffect(()=>{
-    let timer:NodeJS.Timeout;
-    timer = setInterval(()=>{
+    const timer:NodeJS.Timeout = setInterval(()=>{
       setSeconds(seconds + 1);
     },1000)
     return () => clearInterval(timer);
