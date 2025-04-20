@@ -78,7 +78,7 @@ export default function Cards({ moves }: { moves: () => void }) {
 
     const timeout = setTimeout(() => {
       let selectedCards = shuffleData(getTheme(theme)).slice(0, difficulty);
-      let shuffledCards = selectedCards;
+      const shuffledCards = selectedCards;
       shuffledCards.forEach((card) => {
         selectedCards.push(card);
       });

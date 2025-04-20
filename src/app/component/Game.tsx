@@ -29,7 +29,7 @@ function Times(){
   </span>
 }
 
-export default () => {
+export default function Game(){
   const [moves,SetMoves] = useState<number>(0);
   const {difficulty,theme} = useGameSettingsStore();
 

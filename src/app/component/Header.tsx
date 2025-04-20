@@ -2,7 +2,7 @@
 import { useState } from "react";
 import GameSetting from "./GameSetting";
 
-export default () => {  
+export default function Header(){  
   const [open, setOpen] = useState(false);
   return (
     <header className="mt-2 text-xl flex items-center justify-between">
