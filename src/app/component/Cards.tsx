@@ -87,11 +87,11 @@ export default function Cards({ moves }: { moves: () => void }) {
       if (difficulty == 8) {
         setGrid("grid-cols-4 w-[500px]");
       } else if (difficulty == 16) {
-        setGrid("grid-cols-4 sm:grid-cols-8 w-[900px] w-[100%]");
+        setGrid("grid-cols-4 sm:grid-cols-8 sm:w-[900px] w-[100%]");
       } else if (difficulty == 24) {
-        setGrid("grid-cols-6 sm:grid-cols-8 w-[730px] w-[100%]");
+        setGrid("grid-cols-6 sm:grid-cols-8 sm:w-[730px] w-[100%]");
       } else if (difficulty == 32) {
-        setGrid("grid-cols-8 sm:grid-cols-8 w-[550px] w-[100%]");
+        setGrid("grid-cols-8 sm:grid-cols-8 sm:w-[550px] w-[100%]");
       }
     }, 500);
 
@@ -99,7 +99,7 @@ export default function Cards({ moves }: { moves: () => void }) {
   }, [theme, difficulty]);
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center w-full">
       <div className={`grid ${grid} sm:gap-1 gap-0.5`}>
         {cards.map((card, index) => (
           <motion.div
@@ -123,7 +123,7 @@ export default function Cards({ moves }: { moves: () => void }) {
               </button> 
               <button
                 value={card.id}
-                className="absolute w-full h-full  flex  items-center justify-center bg-white rounded-lg backface-hidden"
+                className="absolute w-full h-full  flex items-center justify-center bg-white rounded-lg backface-hidden"
                 style={{ transform: "rotateY(180deg)" }}
               >
                 {theme === "science" || theme === "programming"  ? (
