@@ -39,16 +39,14 @@ export default function Game(){
 
   return (
     <>
-      <div className="flex justify-center items-center flex-wrap my-5">
-        <div className="">
+      <div className="my-5">
           <div  className="flex items-center justify-end mb-5">
             <Moves moveCount={moves}/><Times />
           </div>
-          <div className="flex items-center">
+          <div className="flex justify-center items-center">
             <Cards moves={()=>SetMoves(moves+1)}/>
           </div>
         </div>
-      </div>
     </>
   ); 
 };

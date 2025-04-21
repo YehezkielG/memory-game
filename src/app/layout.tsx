@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
       </head>
-      <body className={`${fredoka.variable} antialiased sm:mx-40 mx-2 `}>
+      <body className={`${fredoka.variable} sm:mx-40 mx-2 `}>
         {children}
       </body>
     </html>
