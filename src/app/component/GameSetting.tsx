@@ -82,9 +82,14 @@ function GameDiffculty() {
     { id: 32, label: "extreme", detail: "32 pairs" },
   ];
 
-  return (
-    <>
-      <h1 className="my-2">
+  return (<>
+      <h1 className="my-2 flex items-center"><img 
+            width="18"
+            height="18"
+            src="icon/ladder.png" 
+            alt="ladder"
+            className="mr-1"
+            />
         Game Difficulty
       </h1>
       <div className="flex gap-2">
@@ -107,7 +112,7 @@ function GameDiffculty() {
               className="hidden"
             />
             {items.label}<br />
-            <span className="text-xs text-gray-700">({items.detail})</span>
+            <span className="text-xstext-gray-700">({items.detail})</span>
           </label>
         ))}
       </div>
@@ -141,26 +146,23 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
               leaveFrom="scale-100 opacity-100"
               leaveTo="scale-95 opacity-0"
             >
-              <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-xl bg-white p-4 text-left align-middle shadow-xl transition-all">
+              <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-xl bg-white py-6 px-4 text-left align-middle shadow-xl transition-all">
                 <Dialog.Title
                   as="h3"
                   className="text-lg font-medium leading-6 text-gray-900 flex items-center"
                 >
-                  Game Settings
+                  <div className="flex items-center w-full justify-between">
+                  <span>
+                    Game Settings
+                  </span>
+                  <span className="">
+                    <img src="icon/close.png" alt="close" className="w-5" />
+                  </span>    
+                  </div>
                 </Dialog.Title>
                 <div className="mt-2">
                   <CardTheme />
                   <GameDiffculty />
-                </div>
-
-                <div className="mt-3 flex justify-end">
-                  <button
-                    type="button"
-                    className="inline-flex justify-center rounded-md border border-transparent bg-indigo-400 px-2 py-1 text-sm font-medium text-white hover:bg-indigo-700"
-                    onClick={onClose}
-                  >
-                    Close
-                  </button>
                 </div>
               </Dialog.Panel>
             </Transition.Child>
