@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 type ThemeType = "math" | "programming" | "color" | "science";
-type CardSet = 8 | 16 | 24 | 32;
+type CardSet = 12 | 18 | 24 | 30;
 
 interface GameSettingsStore {
   theme: ThemeType;
@@ -15,6 +15,6 @@ export const useGameSettingsStore = create<GameSettingsStore>((set) => ({
   theme: "programming",
   setTheme: (t) => set({ theme: t }),
 
-  difficulty: 8,
+  difficulty: 12,
   setDifficulty: (d) => set({ difficulty: d }),
 }));

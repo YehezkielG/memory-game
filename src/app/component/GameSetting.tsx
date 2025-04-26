@@ -85,10 +85,10 @@ function CardTheme() {
                 ""
               )}
               {items.label == "math" ? (<>
-                <div className="flex items-center justify-center bg-white w-full h-full rounded-lg">
+                <div className="flex items-center justify-center font-bold bg-white w-full h-full rounded-lg">
                   {items.cards[0]}
                 </div>
-                <div className="flex items-center justify-center bg-white rounded-lg">
+                <div className="flex items-center justify-center font-bold bg-white rounded-lg">
                   {items.cards[1]}
                 </div>
               </>
@@ -126,7 +126,7 @@ function CardTheme() {
 function GameDiffculty() {
   const { difficulty, setDifficulty } = useGameSettingsStore();
 
-  type difficultyType = 8 | 16 | 24 | 32;
+  type difficultyType = 12 | 18 | 24 | 30;
 
   interface difficultyoption {
     id: difficultyType;
@@ -135,10 +135,10 @@ function GameDiffculty() {
   }
 
   const difficultys: difficultyoption[] = [
-    { id: 8, label: "easy", detail: "8 pairs" },
-    { id: 16, label: "medium", detail: "16 pairs" },
+    { id: 12, label: "easy", detail: "12 pairs" },
+    { id: 18, label: "medium", detail: "18 pairs" },
     { id: 24, label: "hard", detail: "24 pairs" },
-    { id: 32, label: "extreme", detail: "32 pairs" },
+    { id: 30, label: "extreme", detail: "30 pairs" },
   ];
 
   return (

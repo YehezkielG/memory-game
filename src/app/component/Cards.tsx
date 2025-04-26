@@ -51,7 +51,7 @@ export default function Cards({ moves }: { moves: () => void }) {
     );
   };
 
-  const handleCardClick = (index: number, idCard: number) => {
+  const handleCardClick = (index: number, idCard: number) => {   
     moves();
     handleFlip(index);
     if (savedIdCard != idCard && check) {
@@ -62,12 +62,11 @@ export default function Cards({ moves }: { moves: () => void }) {
       }, 500);
       setSavedIdCard(-1);
       setSavedIndex(-1);
-      return;
     } else {
       setSavedIdCard(idCard);
       setSavedIndex(index);
-    }
-    setCheck(!check);
+      }
+      setCheck(!check);
   };
 
   useEffect(() => {
@@ -75,7 +74,6 @@ export default function Cards({ moves }: { moves: () => void }) {
     setSavedIdCard(-1);
     setSavedIndex(-1);
     setFlippedCards([]);
-
     const timeout = setTimeout(() => {
       let selectedCards = shuffleData(getTheme(theme)).slice(0, difficulty);
       const shuffledCards = selectedCards;
@@ -84,19 +82,27 @@ export default function Cards({ moves }: { moves: () => void }) {
       });
       selectedCards = shuffleData(selectedCards);
       setCards(selectedCards);
-      if (difficulty == 8) {
-        setGrid("grid-cols-4 w-[500px]");
-      } else if (difficulty == 16) {
-        setGrid("grid-cols-4 sm:grid-cols-8 sm:w-[900px] w-[100%]");
+      if (difficulty == 12) {
+        setGrid("grid-cols-4 w-[400px]");
+      } else if (difficulty == 18) {
+        setGrid("grid-cols-4 sm:grid-cols-6 sm:w-[600px] w-[100%]");
       } else if (difficulty == 24) {
         setGrid("grid-cols-6 sm:grid-cols-8 sm:w-[730px] w-[100%]");
-      } else if (difficulty == 32) {
-        setGrid("grid-cols-8 sm:grid-cols-8 sm:w-[550px] w-[100%]");
+      } else if (difficulty == 30) {
+        setGrid("grid-cols-6 sm:grid-cols-10 sm:w-[950px] w-[100%]");
       }
     }, 500);
 
     return () => clearTimeout(timeout);
   }, [theme, difficulty]);
+
+  useEffect(()=>{
+    if(flippedCards.length == (difficulty*2)){
+      setTimeout(()=>{
+        alert("you win")
+      },500)
+    }
+  },[flippedCards])
 
   return (
     <div className="flex justify-center w-full">
