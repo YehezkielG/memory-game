@@ -1,8 +1,9 @@
-export default function WinGame(){
-    return <>
-    <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+export default function WinGame() {
+  return (
+    <>
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
         {[...Array(20)].map((_, i) => (
-          <div 
+          <div
             key={i}
             className="absolute animate-fall"
             style={{
@@ -10,10 +11,16 @@ export default function WinGame(){
               top: `-${Math.random() * 20}px`,
               width: `${Math.random() * 10 + 5}px`,
               height: `${Math.random() * 10 + 5}px`,
-              background: ['#FF9F1C', '#FFBF69', '#CBF3F0', '#2EC4B6', '#FF4D6D'][Math.floor(Math.random() * 5)],
-              borderRadius: '50%',
+              background: [
+                "#FF9F1C",
+                "#FFBF69",
+                "#CBF3F0",
+                "#2EC4B6",
+                "#FF4D6D",
+              ][Math.floor(Math.random() * 5)],
+              borderRadius: "50%",
               animationDuration: `${Math.random() * 3 + 2}s`,
-              animationDelay: `${Math.random() * 2}s`
+              animationDelay: `${Math.random() * 2}s`,
             }}
           />
         ))}
@@ -32,7 +39,8 @@ export default function WinGame(){
         .animate-fall {
           animation: fall linear infinite;
         }
-        {/* @keyframes spin{
+         {
+          /* @keyframes spin{
           0%{
               transform: rotate(0deg);
           }
@@ -42,23 +50,34 @@ export default function WinGame(){
         }
         .animate-spin{
           animation: spin linear repeat;
-        } */}
+        } */
+        }
       `}</style>
       <section className="absolute top-0 w-full left-0 -z-10 flex items-center justify-center h-svh">
-      <div className="m-auto rounded-lg bg-white/70 w-[100%] sm:w-[550px] p-5">
-        <center>
-        <img src="icon/crown.png" alt="crown" className="my-2" />
-            <h1 className="text-3xl my-2 text-[#282828] font-bold">
-                Congratulations!
+        <div className="m-auto rounded-lg bg-white/70 w-[100%] sm:w-[550px] mx-2 p-5">
+          <div className="grid grid-cols-1 gap-2 place-items-center">
+            <img src="icon/crown.png" alt="crown" className="mx-auto" />
+            <h1 className="text-3xl text-[#282828] font-bold">
+              Congratulations!
             </h1>
-            <p className="text-gray-700 my-2">You&rsquo;ve completed the game!</p>
+            <p className="text-gray-700">You&rsquo;ve completed the game!</p>
+            <div className="flex justify-around w-full">
+              <div>
+                <div>Time</div>
+                <div className="text-center text-gray-700">01:23</div>
+              </div>
+              <div>
+                <div>Moves</div>
+                <div className="text-center text-gray-700">75</div>
+              </div>
+            </div>
             <button className="w-full p-2 bg-[#8F87F1] text-[#282828] rounded-lg text-lg flex items-center justify-center">
-                  <img src="icon/repeat2.png" alt="" className="w-6 mr-2"/>
-                  Play Again 
+              <img src="icon/repeat2.png" alt="" className="w-6 mr-2" />
+              Play Again
             </button>
-        </center>   
-    </div>
+          </div>
+        </div>
       </section>
-    
     </>
+  );
 }
