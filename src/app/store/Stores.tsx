@@ -18,3 +18,13 @@ export const useGameSettingsStore = create<GameSettingsStore>((set) => ({
   difficulty: 12,
   setDifficulty: (d) => set({ difficulty: d }),
 }));
+
+interface isWinningStore{
+  isWinning:boolean;
+  setWinning: (w:boolean) => void;
+}
+
+export const useWiningGameStrore = create<isWinningStore>((set) => ({ 
+  isWinning: false,
+  setWinning:(w) => set({ isWinning:w }),
+}));

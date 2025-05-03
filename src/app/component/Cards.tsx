@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { useGameSettingsStore } from "../store/Stores";
+import { useGameSettingsStore,useWiningGameStrore } from "../store/Stores";
 
 import programming from "../CardComponent/programming.json";
 import math from "../CardComponent/math.json";
@@ -44,6 +44,7 @@ export default function Cards({ moves }: { moves: () => void }) {
   const [savedIndex, setSavedIndex] = useState(-1);
   const [grid, setGrid] = useState("");
   const { difficulty, theme } = useGameSettingsStore();
+  const {setWinning} = useWiningGameStrore();
 
   const handleFlip = (index: number) => {
     setFlippedCards((prev) =>
@@ -73,6 +74,7 @@ export default function Cards({ moves }: { moves: () => void }) {
     setCheck(false);
     setSavedIdCard(-1);
     setSavedIndex(-1);
+    setWinning(false);
     setFlippedCards([]);
     const timeout = setTimeout(() => {
       let selectedCards = shuffleData(getTheme(theme)).slice(0, difficulty);
@@ -98,9 +100,7 @@ export default function Cards({ moves }: { moves: () => void }) {
 
   useEffect(()=>{
     if(flippedCards.length == (difficulty*2)){
-      setTimeout(()=>{
-        alert("you win")
-      },500)
+      setWinning(true);
     }
   },[flippedCards])
 

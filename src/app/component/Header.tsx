@@ -6,7 +6,7 @@ export default function Header(){
   const [open, setOpen] = useState(false);
   return (
     <>
-    <header className="mt-2 text-xl flex items-center justify-between">
+    <header className="mt-2 text-xl flex items-center justify-between z-20">
       <h1>Memory Game</h1>
       <div className="flex items-center">
         <button className="w-7 h-7 rounded-full flex items-center cursor-pointer justify-center bg-gray-100/[50%]" onClick={()=>setOpen(true)}>

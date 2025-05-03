@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import Cards from "./Cards"
-import { useGameSettingsStore } from "../store/Stores";
+import { useGameSettingsStore,useWiningGameStrore } from "../store/Stores";
+import Completed from "./GameWin";
 
 function Moves({ moveCount }: { moveCount:number }){
   return <div className="mx-2">
@@ -32,13 +33,18 @@ function Times(){
 export default function Game(){
   const [moves,SetMoves] = useState<number>(0);
   const {difficulty,theme} = useGameSettingsStore();
+  const {isWinning} = useWiningGameStrore();
 
   useEffect(()=>{
     SetMoves(0);
-  },[theme,difficulty])
+  },[theme,difficulty,isWinning])
 
   return (
-    <>
+    <>{
+      isWinning ? 
+      <div>
+        <Completed />
+      </div> :
       <div className="my-5">
           <div  className="flex items-center justify-end mb-5">
             <Moves moveCount={moves}/><Times />
@@ -47,6 +53,7 @@ export default function Game(){
             <Cards moves={()=>SetMoves(moves+1)}/>
           </div>
         </div>
+    }
     </>
   ); 
 };
