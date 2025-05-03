@@ -22,9 +22,19 @@ export const useGameSettingsStore = create<GameSettingsStore>((set) => ({
 interface isWinningStore{
   isWinning:boolean;
   setWinning: (w:boolean) => void;
+
+  time:string;
+  setTimeStore: (w:string) => void;
+
+  moves:number;
+  setMovesStore: (w:number) => void;
 }
 
 export const useWiningGameStrore = create<isWinningStore>((set) => ({ 
   isWinning: false,
   setWinning:(w) => set({ isWinning:w }),
+  time: "",
+  setTimeStore:(w) => set({ time:w }),
+  moves: 0,
+  setMovesStore:(w) => set({ moves:w }),
 }));

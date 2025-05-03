@@ -1,4 +1,9 @@
+import { useWiningGameStrore, useGameSettingsStore } from "../store/Stores";
+
 export default function WinGame() {
+  const { setWinning, time, moves } = useWiningGameStrore();
+  const { difficulty, theme } = useGameSettingsStore();
+
   return (
     <>
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
@@ -54,24 +59,36 @@ export default function WinGame() {
         }
       `}</style>
       <section className="absolute top-0 w-full left-0 -z-10 flex items-center justify-center h-svh">
-        <div className="m-auto rounded-lg bg-white/70 w-[100%] sm:w-[550px] mx-2 p-5">
+        <div className="m-auto rounded-lg bg-white/70 w-[100%] sm:w-[450px] mx-2 p-5">
           <div className="grid grid-cols-1 gap-2 place-items-center">
             <img src="icon/crown.png" alt="crown" className="mx-auto" />
             <h1 className="text-3xl text-[#282828] font-bold">
               Congratulations!
             </h1>
             <p className="text-gray-700">You&rsquo;ve completed the game!</p>
-            <div className="flex justify-around w-full">
-              <div>
-                <div>Time</div>
-                <div className="text-center text-gray-700">01:23</div>
+            <div className="grid grid-cols-2 my-3">
+              <div className="mx-5 font-bold text-center">Theme</div>
+              <div className="mx-5 font-bold text-center">Difficulty</div>
+              <div className="mx-5 text-center text-gray-700">
+                {theme.charAt(0).toUpperCase() + theme.slice(1)}
               </div>
-              <div>
-                <div>Moves</div>
-                <div className="text-center text-gray-700">75</div>
+              <div className="mx-5 text-center text-gray-700">
+                {difficulty == 12 ? "Easy" : ""}
+                {difficulty == 18 ? "Medium" : ""}
+                {difficulty == 24 ? "Hard" : ""}
+                {difficulty == 30 ? "Extreme" : ""}
               </div>
+              <div className="mx-5 font-bold text-center">Time</div>
+              <div className="mx-5 font-bold text-center">Moves</div>
+              <div className="mx-5 text-center text-gray-700">{time}</div>
+              <div className="mx-5 text-center text-gray-700">{moves}</div>
             </div>
-            <button className="w-full p-2 bg-[#8F87F1] text-[#282828] rounded-lg text-lg flex items-center justify-center">
+            <button
+              className="w-full p-2 bg-[#8F87F1] cursor-pointer text-[#282828] rounded-lg text-lg flex items-center justify-center"
+              onClick={() => {
+                setWinning(false);
+              }}
+            >
               <img src="icon/repeat2.png" alt="" className="w-6 mr-2" />
               Play Again
             </button>
