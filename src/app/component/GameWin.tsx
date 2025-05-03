@@ -51,7 +51,7 @@ export default function WinGame(){
             <h1 className="text-3xl my-2 text-[#282828] font-bold">
                 Congratulations!
             </h1>
-            <p className="text-gray-700 my-2">You've completed the game!</p>
+            <p className="text-gray-700 my-2">You&rsquo;ve completed the game!</p>
             <button className="w-full p-2 bg-[#8F87F1] text-[#282828] rounded-lg text-lg flex items-center justify-center">
                   <img src="icon/repeat2.png" alt="" className="w-6 mr-2"/>
                   Play Again 
