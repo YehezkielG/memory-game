@@ -87,7 +87,7 @@ export default function Cards({ moves }: { moves: () => void }) {
       if (difficulty == 12) {
         setGrid("grid-cols-4 w-[400px]");
       } else if (difficulty == 18) {
-        setGrid("grid-cols-4 sm:grid-cols-6 sm:w-[600px] w-[100%]");
+        setGrid("grid-cols-4 p- sm:grid-cols-6 sm:w-[600px] w-[100%]");
       } else if (difficulty == 24) {
         setGrid("grid-cols-6 sm:grid-cols-8 sm:w-[730px] w-[100%]");
       } else if (difficulty == 30) {
