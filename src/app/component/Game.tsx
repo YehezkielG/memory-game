@@ -50,7 +50,7 @@ export default function Game() {
         </div>
       ) : (
         <div className="">
-          <div className="flex h-[5svh] items-center justify-between">
+          <div className="flex my-2 items-center justify-between">
             <div>
               {theme.charAt(0).toUpperCase() + theme.slice(1)},{" "}
               {difficulty == 12 ? "Easy" : ""}
@@ -63,7 +63,7 @@ export default function Game() {
               <Times seconds={seconds }/>
             </div>
           </div>
-          <div className="flex items-center justify-center h-[89svh]">
+          <div className="flex items-center justify-center">
             <Cards moves={() => SetMoves(moves + 1)} />
           </div>
         </div>
