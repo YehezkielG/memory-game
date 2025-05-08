@@ -63,7 +63,7 @@ export default function Game() {
               <Times seconds={seconds }/>
             </div>
           </div>
-          <div className="flex items-center justify-center">
+          <div className="flex items-cente my-4 justify-center">
             <Cards moves={() => SetMoves(moves + 1)} />
           </div>
         </div>
