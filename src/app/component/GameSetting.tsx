@@ -66,14 +66,14 @@ function CardTheme() {
             <div className="grid grid-cols-2 gap-2 h-9/12">
               {items.label === "science" || items.label === "programming" ? (
                 <>
-                  <div className="flex items-center h-24 justify-center bg-white rounded-lg">
+                  <div className="flex items-center h-24 w-24 justify-center bg-white rounded-lg">
                     <img
                       src={`${items.cards[0]}`}
                       className="object-contain sm:p-2 p-1"
                       alt={`${items.label}`}
                     />
                   </div>
-                  <div className="flex items-center h-24 justify-center bg-white rounded-lg">
+                  <div className="flex items-center h-24 w-24 justify-center bg-white rounded-lg">
                     <img
                       src={`${items.cards[1]}`}
                       className="object-contain sm:p-2 p-1"
