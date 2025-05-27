@@ -26,9 +26,13 @@ function CardTheme() {
       label: "programming",
       cards: ["Images/Programming/TS.png", "Images/Programming/python.png"],
     },
-    { id: "math", label: "math", cards: ["√","∫"] },
+    { id: "math", label: "math", cards: ["√", "∫"] },
     { id: "color", label: "color", cards: ["#39CCCC", "#F5F5DC"] },
-    { id: "science", label: "science", cards: ["Images/science/acidbase.png", "Images/science/chemical.png"] },
+    {
+      id: "science",
+      label: "science",
+      cards: ["Images/science/acidbase.png", "Images/science/chemical.png"],
+    },
   ];
 
   return (
@@ -49,9 +53,7 @@ function CardTheme() {
             key={items.id}
             className={`bg-[#DAD2FF] cursor-pointer p-1 rounded-xl shadow-md transition-all text-center hover:border-blue-300
             ${
-              theme === items.id
-                ? "border-2 border-blue-500 text-gray-700"
-                : ""
+              theme === items.id ? "border-2 border-blue-500 text-gray-700" : ""
             }`}
           >
             <input
@@ -62,18 +64,17 @@ function CardTheme() {
               onChange={() => setTheme(items.id)}
               className="hidden"
             />
-            
             <div className="grid grid-cols-2 gap-2 h-9/12">
               {items.label === "science" || items.label === "programming" ? (
                 <>
-                  <div className="flex items-center h-24 w-24 justify-center bg-white rounded-lg">
+                  <div className="flex items-center justify-center bg-white rounded-lg ">
                     <img
                       src={`${items.cards[0]}`}
                       className="object-contain sm:p-2 p-1"
                       alt={`${items.label}`}
                     />
                   </div>
-                  <div className="flex items-center h-24 w-24 justify-center bg-white rounded-lg">
+                  <div className="flex items-center justify-center bg-white rounded-lg">
                     <img
                       src={`${items.cards[1]}`}
                       className="object-contain sm:p-2 p-1"
@@ -84,33 +85,33 @@ function CardTheme() {
               ) : (
                 ""
               )}
-              {items.label == "math" ? (<>
-                <div className="flex items-center justify-center font-bold bg-white w-full h-full rounded-lg">
-                  {items.cards[0]}
-                </div>
-                <div className="flex items-center justify-center font-bold bg-white rounded-lg">
-                  {items.cards[1]}
-                </div>
-              </>
+              {items.label == "math" ? (
+                <>
+                  <div className="flex items-center justify-center font-bold bg-white rounded-lg  ">
+                    {items.cards[0]}
+                  </div>
+                  <div className="flex items-center justify-center font-bold bg-white rounded-lg">
+                    {items.cards[1]}
+                  </div>
+                </>
               ) : (
                 ""
               )}
               {items.label == "color" ? (
                 <>
-                <div className="flex items-center justify-center bg-white rounded-lg">
-                <div
-                  className={`w-full h-full rounded-lg`}
-                  style={{ background: `${items.cards[0]}` }}
-                ></div>
-                </div>
-                <div className="flex items-center justify-center bg-white rounded-lg">
-                <div
-                  className={`w-full h-full rounded-lg`}
-                  style={{ background: `${items.cards[1]}` }}
-                ></div>
-                </div>
+                  <div className="flex items-center justify-center bg-white rounded-lg">
+                    <div
+                      className={`w-full h-full rounded-lg`}
+                      style={{ background: `${items.cards[0]}` }}
+                    ></div>
+                  </div>
+                  <div className="flex items-center justify-center bg-white rounded-lg">
+                    <div
+                      className={`w-full h-full rounded-lg`}
+                      style={{ background: `${items.cards[1]}` }}
+                    ></div>
+                  </div>
                 </>
-                
               ) : (
                 ""
               )}
@@ -160,8 +161,7 @@ function GameDiffculty() {
             className={`cursor-pointer p-2 rounded-xl bg-[#DAD2FF] shadow-md transition-all w-40 text-center hover:border-blue-300
             ${
               difficulty === items.id
-                ? "border-2 border-blue-500 text-gray-700"
-                : ""
+              ? "border-2 border-blue-500 text-gray-700" : ""
             }`}
           >
             <input

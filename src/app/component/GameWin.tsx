@@ -87,8 +87,7 @@ export default function WinGame() {
               className="w-full p-2 bg-[#8F87F1] cursor-pointer text-[#282828] rounded-lg text-lg flex items-center justify-center"
               onClick={() => {
                 setWinning(false);
-              }}
-            >
+              }}>
               <img src="icon/repeat2.png" alt="" className="w-6 mr-2" />
               Play Again
             </button>
